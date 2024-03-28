@@ -21,9 +21,10 @@ export default function Header() {
           user ? (
           <ul>
             <div>
-              <Link to='/profile'>{user.name}</Link>
+              <Link to='/'>{user.name}</Link>
               <Link to='/orders'>Orders</Link>
               <Link onClick={logout}>Logout</Link>
+              <button>Call Waiter</button>
             </div>
           </ul> )
           : (<Link to='/login'>Login</Link>
