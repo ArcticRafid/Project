@@ -1,13 +1,21 @@
 import React from 'react'
 import classes from './thumbnails.module.css'
+import { useCart } from '../../Hooks/useCart';
 
 export default function Thumbnails({foods}) {
+
+    const{addmore} = useCart();
+
+    const addcart = (food) => {
+        addmore(food);
+    }
+  
   return <ul className={classes.list}>
         {
         foods.map(food => 
            <li key={food.id}>
             <img className={classes.image}
-            src={`/foods/${food.image}`}
+            src={`${food.image}`}
             alt={food.name} />
             <div className={classes.content}>
                 <div className={classes.name}>
@@ -21,7 +29,7 @@ export default function Thumbnails({foods}) {
                         Tk.{food.price}
                     </div>
                     <div className={classes.add}>
-                        <button className={classes.cartbut}>Add to Cart</button>
+                        <button className={classes.cartbut} onClick={() => addcart(food)}>Add to Cart</button>
                     </div>
                 </div>
             </div>                

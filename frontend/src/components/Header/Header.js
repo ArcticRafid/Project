@@ -1,15 +1,11 @@
 import React from 'react'
 import classes from './header.module.css'
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../Hooks/useAuth';
 
 export default function Header() {
-  const user = {
-    name: 'Table',
-  };
-  const cart = {
-    totalCount: 10,
-  };
-  const logout = () => {}
+  const {user, logout} = useAuth();
+
   return <header className={classes.header}>
   <div className={classes.container}>
     <Link to="/" className={classes.logo}>
@@ -22,7 +18,7 @@ export default function Header() {
           <ul>
             <div>
               <Link to='/'>{user.name}</Link>
-              <Link to='/orders'>Orders</Link>
+              {user.admin && <Link to='/orders'>Orders</Link>}
               <Link onClick={logout}>Logout</Link>
               <button>Call Waiter</button>
             </div>
@@ -30,7 +26,7 @@ export default function Header() {
           : (<Link to='/login'>Login</Link>
         )}
         <ul>
-          <Link to='/cart'>Cart {cart.totalCount > 0 && <span>{cart.totalCount}</span>}</Link>
+          <Link to='/cart'>Cart</Link>
         </ul>
 
       </ul>

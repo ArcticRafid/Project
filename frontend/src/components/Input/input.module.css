@@ -1,0 +1,25 @@
+h1 {
+    display: relative;
+    justify-content: center;
+}
+
+.input {
+    width: 25%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid purple;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.inpu::placeholder {
+    color: #f0f0f0;
+    font-size: 0.75rem;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
