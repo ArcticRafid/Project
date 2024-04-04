@@ -14,9 +14,11 @@ export default function CartPage() {
                         <div>
                             <img src={`${item.food.image}`}
                             alt = {item.food.name} />
+                            &nbsp;
                         </div>
                         <div>
                             {item.food.name}
+                            &nbsp;
                         </div>
                         <div>
                             <select value={item.quantity} onChange={e => changequant(item, Number(e.target.value))}>
@@ -36,12 +38,15 @@ export default function CartPage() {
                                 <option>14</option>
                                 <option>15</option>
                             </select>
+                            &nbsp;
                         </div>
                         <div>
                             Tk.{item.price}
+                            &nbsp;
                         </div>
                         <div>
                             <button className={classes.rembut} onClick ={() => removeitem(item.food.id)}>Remove Item</button>
+                            &nbsp;
                         </div>
                     </li>
                     ))}

@@ -6,7 +6,8 @@
 }
 
 .header a {
-    color: purple;    
+    color: purple;
+    transition: background-color 0.3s ease;    
 }
 
 .header a:hover {
@@ -45,6 +46,7 @@
     cursor: pointer;
     padding: 1rem;
     font-size: inherit;
+    transition: background-color 0.3s ease;
 }
 
 .header button:hover {

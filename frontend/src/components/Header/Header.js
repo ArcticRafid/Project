@@ -18,7 +18,7 @@ export default function Header() {
           <ul>
             <div>
               <Link to='/'>{user.name}</Link>
-              {user.admin && <Link to='/orders'>Orders</Link>}
+              {user.admin && <Link to='/admin'>Admin</Link>}
               <Link onClick={logout}>Logout</Link>
               <button>Call Waiter</button>
             </div>

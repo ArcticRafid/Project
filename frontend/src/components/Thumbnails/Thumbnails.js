@@ -4,9 +4,13 @@ import { useCart } from '../../Hooks/useCart';
 
 export default function Thumbnails({foods}) {
 
-    const{addmore} = useCart();
+    const{addmore, cart} = useCart();
 
     const addcart = (food) => {
+        const existingItem = cart.items.find(item => item.food.id === food.id);
+        if (existingItem && existingItem.quantity >= 15) {
+            return;
+        }
         addmore(food);
     }
   

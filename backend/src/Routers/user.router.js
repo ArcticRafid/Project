@@ -17,6 +17,27 @@ router.post('/login', handler(async (req, res) => {
 
 }));
 
+router.post('/register', handler (async (req, res) => {
+    const {name, employee, password} = req.body;
+
+    const user = await UserModel.findOne({employee});
+
+    if (user) {
+        res.status(400).send('Employee Already Registered');
+        return;
+    }
+
+    const newUser = {
+        name, 
+        employee,
+        password,
+    };
+
+    const result = await UserModel.create(newUser);
+    res.send(generate(result));
+
+}));
+
 const generate = user => {
     const token = tkn.sign ({
         id: user.id, employee: user.employee, admin: user.admin
